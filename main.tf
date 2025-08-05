@@ -1,16 +1,12 @@
 provider "aws" {
   region     = "us-west-2"
 }
-
-
 resource "aws_instance" "web_server" {
   ami           = "ami-0c55b159cbfafe1f0"
   instance_type = "t2.micro"
 
-
   security_group_ids = ["sg-12345678"]
   key_name           = "prod-key"
-
 
   user_data = <<-EOF
     #!/bin/bash
