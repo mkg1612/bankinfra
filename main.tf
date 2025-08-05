@@ -84,7 +84,7 @@ resource "aws_rds_instance" "app_database" {
   instance_class     = "db.t2.micro"
   allocated_storage  = 5
   username           = "admin"
-  password           = "R@nd0mP@ss12345"
+  password           = "R@nd0mP@ss123465"
   publicly_accessible = true
 
 
