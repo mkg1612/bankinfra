@@ -352,7 +352,7 @@ resource "aws_iam_role_policy" "mongodb_policy" {
 
 # ECR Repository
 resource "aws_ecr_repository" "cbdc_app" {
-  name = "cbdc-app"
+  name = "cbdc-app1"
 
   image_scanning_configuration {
     scan_on_push = true
