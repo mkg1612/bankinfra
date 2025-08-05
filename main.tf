@@ -77,6 +77,30 @@ resource "aws_s3_bucket" "app_data_bucket" {
   }
 }
 
+resource "aws_security_group" "ssh_open_to_world" {
+  name        = "allow-ssh-world"
+  description = "Allow SSH from anywhere"
+  vpc_id      = "vpc-abc12345"  # Replace with your VPC ID
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "ssh-open"
+  }
+}
+
 
 resource "aws_rds_instance" "app_database" {
   identifier         = "app-db-instance"
